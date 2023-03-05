@@ -1,48 +1,34 @@
 <template>
-    <div class="flex flex-wrap">
-      <CharacterCard
-        v-for="{ id, name, image, status, species, location } in data.characters.results"
-        :key="id"
-        :id="id"
-        :name="name"
-        :image="image"
-        :status="status"
-        :species="species"
-        :location="location.name"
-      />
-    </div>
-  </template>
-  <script lang="ts" setup>
-  type CharactersResults = {
-    characters: {
-      results: {
-        id: string,
-        name: string,
-        image: string,
-        status: string,
-        species: string,
-        location: {
-          name: string
+  <div class="flex flex-wrap">
+    <PostCard v-for="{ id, attributes } in data.posts.data" :key="id" :data="data" :id="id"
+      :attributes="attributes" :Title="attributes.Title" :Description="attributes.Description" class="w-[350px]" />
+  </div>
+</template>
+<script lang="ts" setup>
+type PostsData = {
+  posts: {
+    data: {
+      id: string,
+      attributes: {
+        Title: string,
+        Description: string,
         }
-      }[]
-    }
+    }[]
   }
-  
-  const query = gql`
-  query getCharacters {
-    characters {
-      results {
-        name
-        image
-        status
-        id
-        species
-        location {
-          name
-        }
+}
+
+const query = gql`
+  query getPosts {
+    posts{
+  data{
+    id
+    attributes{
+      Title
+      Description
       }
     }
   }
+  }
   `
-  const { data } = await useAsyncQuery<CharactersResults>(query)
-  </script>
+const { data } = await useAsyncQuery<PostsData>(query)
+</script>

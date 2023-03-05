@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     apollo: {
         clients: {
           default: {
-            httpEndpoint: 'https://rickandmortyapi.com/graphql'
+            httpEndpoint: 'https://cmsathenaplus.herokuapp.com/graphql'
           }
         },
       },
@@ -14,3 +14,9 @@ export default defineNuxtConfig({
         domains: ['rickandmortyapi.com/']
       }
 })
+
+
+// https://cmsathenaplus.herokuapp.com/graphql
+
+// Rick https://rickandmortyapi.com/graphql
+// Baroshem nuxt-apollo-tailwind Public https://github.com/Baroshem/nuxt-apollo-tailwind
