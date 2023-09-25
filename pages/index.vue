@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap">
-    <PostCard v-for="{ id, attributes } in data.posts.data" :key="id" :data="data" :id="id"
-      :attributes="attributes" :Title="attributes.Title" :Description="attributes.Description" class="w-[350px]" />
+    <PostCards v-for="{ id, attributes } in data.posts.data" :key="id" :data="data" :id="id"
+      :attributes="attributes" :Title="attributes.Title" :Description="attributes.Description"   class="w-[350px]" />
   </div>
 </template>
 <script lang="ts" setup>
@@ -25,6 +25,14 @@ const query = gql`
     attributes{
       Title
       Description
+      category {
+          data {
+            id
+            attributes {
+                Title
+            }
+          }
+        }
       }
     }
   }

@@ -6,6 +6,7 @@ type Post = {
       attributes: {
         Title: string,
         Description: string,
+        Article: string,
       }[]
     }
   }
@@ -43,6 +44,7 @@ const { data, error } = await useAsyncQuery<Post>(query, {
       :attributes="data.post.data.attributes"
       :Title="data.post.data.attributes.Title"
       :Description="data.post.data.attributes.Description"
+      :Article="data.post.data.attributes.Article"
     />
   </div>
 </template>

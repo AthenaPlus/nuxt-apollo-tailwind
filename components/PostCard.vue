@@ -20,6 +20,10 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    Article: {
+        type: String,
+        required: true,
+    },
 })
 
 // const grayScaleWhenDead = computed(() => props.status === 'Dead' ? { grayscale: true } : {})
@@ -30,7 +34,8 @@ const props = defineProps({
         <NuxtLink :to="`/blog/${id}`">
             <div class="m-3">
                 <h3 class="text-2xl mb-3 text-pink-700"><span class="text-gray-600 text-base">Title:</span>  {{ Title }}</h3>
-                <p>Description: {{ Description }}</p>
+                <p class="mb-4">Description: {{ Description }}</p>
+                <p class="mb-4">Article: {{ Article }}</p>
             </div>
         </NuxtLink>
     </div>
